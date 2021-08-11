@@ -1,0 +1,44 @@
+<h1 align="center">Müşteri Güncelleme</h1>
+<div class="col-8">
+  <form #customerForm>
+    <table class="col-12">
+      <tr>
+        <td class="col-6" align="right"><label class="required-label-asterisk"><b>Adı:</b></label></td>
+        <td class="col-6">
+          <input type="text" id="name" name="name" [class.is-invalid]="validate(name)"
+                 class="form-control" required [(ngModel)]="customer.name" #name='ngModel'
+                 [maxLength]="25"/>
+          <small class="text-danger" *ngIf="validate(name)">* Lütfen isim giriniz.</small>
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label class="required-label-asterisk"><b>Soyadı:</b></label></td>
+        <td><input type="text" id="surname" name="surname" class="form-control" required
+                   [class.is-invalid]="validate(surname)"
+                   [(ngModel)]="customer.surname" #surname='ngModel' [maxLength]="25"/>
+          <small class="text-danger" *ngIf="validate(surname)">* Lütfen soyisim giriniz.</small>
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label class="required-label-asterisk"><b>Telefon Numarası:</b></label></td>
+        <td><input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required prefix="0"
+                   showMaskTyped="true"
+                   mask=" 000 000 00 00" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                   [class.is-invalid]="validate(phoneNumber)"
+                   #phoneNumber='ngModel'
+                   oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                   [(ngModel)]="customer.phoneNumber" [minLength]="10" [maxLength]="20"/>
+          <small class="text-danger" *ngIf="validate(phoneNumber)">* Lütfen telefon numarası giriniz.</small>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+        <td align="right">
+          <input id="btnUpdate" name="btnUpdate" type="button" class="btn btn-info"
+                                 (click)="updateCustomer(customerForm)" value="Güncelle"/>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+.required-label-asterisk:before {
+  color: red;
+  content: "*";
+  position: absolute;
+  margin-left: -6px;
+  margin-top: -3px;
+}

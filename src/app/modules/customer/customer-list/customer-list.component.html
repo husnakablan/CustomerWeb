@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="container-fluid mt-lg-5">
+    <div class="row">
+      <div class="col-xl-12">
+        <div class="card">
+          <div class="card-header pb-0">
+            <h1 class="h3 mb-3">Müşteri Listesi</h1>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <tr>
+                <td><input  type="text" [(ngModel)]="customerFilter.id" ></td>
+                <td><input  type="text" [(ngModel)]="customerFilter.name" ></td>
+                <td><input  type="text" [(ngModel)]="customerFilter.surname" ></td>
+                <td><input  type="text" [(ngModel)]="customerFilter.phoneNumber"  ></td>
+                <td><div class="btn-group"><button name="btnSearch" value="Ara" class="btn btn-primary" (click)="search()">Ara</button></div></td>
+                <td><div class="btn-group"><button name="btnClean" value="Temizle" class="btn btn-outline-primary" (click)="clear()">Temizle</button></div></td>
+              </tr>
+            </table>
+            <table class="table table-striped align-middle">
+              <thead>
+              <tr>
+                <th>Numara</th>
+                <th>Adı</th>
+                <th>Soyadı</th>
+                <th>Telefon No</th>
+                <th>İşlemler</th>
+              </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let customer of customerList" >
+                    <td>{{ customer.id }}</td>
+                    <td>{{ customer.name }}</td>
+                    <td>{{ customer.surname }}</td>
+                    <td>{{ customer.phoneNumber }}</td>
+                    <td>
+                      <button name="btnView" data-toggle="tooltip" data-placement="top" title="Görüntüle" class="btn btn-outline-info me-lg-2" value="Görüntüle" (click)="navigateForView(customer.id)"><i class="fa fa-user"></i></button>
+                      <button name="btnUpdate" data-toggle="tooltip" data-placement="top" title="Güncelle" class="btn btn-outline-success me-lg-2" value="Güncelle" (click)="navigateForUpdate(customer.id)"><i class="fa fa-user-edit"></i></button>
+                      <button name="btnDelete" data-toggle="tooltip" data-placement="top" title="Sil" class="btn btn-outline-danger" value="Sil" (click)="deleteCustomerConfirm(customer)"><i class="fa fa-trash"></i></button>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
