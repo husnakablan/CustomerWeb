@@ -23,7 +23,9 @@ export class CustomerListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.list().subscribe(value => {
-      this.customerList = value ;
+      this.customerList = value;
+    }, err => {
+      this.messageService.errorMessage(JSON.stringify(err), 'Hata');
     });
   }
 
@@ -33,6 +35,10 @@ export class CustomerListComponent implements OnInit {
 
   navigateForView(id: number) {
     this.router.navigateByUrl('/customer-view/' + id);
+  }
+
+  navigateForAdd() {
+    this.router.navigateByUrl('/customer-add');
   }
 
   deleteCustomerConfirm(customer: Customer){
@@ -49,13 +55,12 @@ export class CustomerListComponent implements OnInit {
       this.messageService.successMessage('Müşteri başarılı bir şekilde silindi', 'Müşteri Silme');
       this.search();
     }, err => {
-      this.messageService.errorMessage(err.toString(), 'Hata');
+      this.messageService.errorMessage(JSON.stringify(err), 'Hata');
     });
   }
 
   search() {
-    this.service.search(this.customerFilter)
-      .subscribe( value => {
+    this.service.search(this.customerFilter).subscribe( value => {
       this.customerList = value ;
     });
   }

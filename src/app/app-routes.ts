@@ -14,11 +14,6 @@ export const routes: Routes = [
     component: CustomerAddComponent,
   },
   {
-    path: '',
-    redirectTo: 'customer-list',
-    pathMatch: 'full'
-  },
-  {
     path: 'customer-update/:id',
     component: CustomerUpdateComponent,
   },
@@ -27,7 +22,8 @@ export const routes: Routes = [
     component: CustomerViewComponent,
   },
   {
-    path: 'customer-add',
-    component: CustomerAddComponent,
+    path: '',
+    redirectTo: 'customer-list',
+    pathMatch: 'full'
   }
  ];

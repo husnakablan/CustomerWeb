@@ -1,24 +1,30 @@
-<div class="col-6">
-  <table class="col-12 table table-striped">
-    <tr>
-      <td class="col-6" align="right"><h1>Müşteri Bilgileri</h1></td>
-      <td class="col-6"></td>
-    </tr>
-    <tr>
-      <td><b>Numara :</b></td>
-      <td>{{customer.id}}</td>
-    </tr>
-    <tr>
-      <td><b>Adı :</b></td>
-      <td>{{customer.name}}</td>
-    </tr>
-    <tr>
-      <td><b>Soyadı :</b></td>
-      <td >{{customer.surname}}</td>
-    </tr>
-    <tr>
-      <td><b>Telefon Numarası :</b></td>
-      <td >{{customer.phoneNumber}}</td>
-    </tr>
-  </table>
+<h1 align="center">Müşteri Görüntüleme</h1>
+<div class="col-8">
+    <table class="col-12">
+      <tr>
+        <td class="col-6" align="right"><label class="required-label-asterisk"><b>Adı:</b></label></td>
+        <td class="col-6">
+          <input disabled type="text" id="name" name="name"
+                 class="form-control" [(ngModel)]="customer.name"
+                 [maxLength]="25"/>
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label class="required-label-asterisk"><b>Soyadı:</b></label></td>
+        <td><input disabled type="text" id="surname" name="surname" class="form-control"
+                   [(ngModel)]="customer.surname" [maxLength]="25"/>
+        </td>
+      </tr>
+      <tr>
+        <td align="right"><label class="required-label-asterisk"><b>Telefon Numarası:</b></label></td>
+        <td><input disabled type="text" id="phoneNumber" name="phoneNumber" class="form-control"
+                   [(ngModel)]="customer.phoneNumber"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+        </td>
+        <td align="right"><input id="btnBack" name="btnBack" type="button" class="btn btn-info" (click)="navigateForList()" value="Geri"/></td>
+      </tr>
+    </table>
 </div>

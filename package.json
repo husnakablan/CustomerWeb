@@ -24,7 +24,6 @@
     "@fortawesome/fontawesome-free": "^5.15.3",
     "@ng-bootstrap/ng-bootstrap": "^6.x.x",
     "bootstrap": "^5.0.1",
-    "ngx-mask": "^12.0.0",
     "ngx-toastr": "^12.1.0",
     "rxjs": "~6.5.4",
     "save": "^2.4.0",

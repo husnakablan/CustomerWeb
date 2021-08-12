@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CustomerService} from '../../services/customer.service';
 import {Customer} from '../../model/customer';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MessageService} from '../../services/message.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class CustomerViewComponent implements OnInit {
 
   constructor(private service: CustomerService,
               private route: ActivatedRoute,
+              private router: Router,
               private messageService: MessageService) { }
 
   customer = new Customer();
@@ -21,10 +22,14 @@ export class CustomerViewComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.service.getCustomerById(params.id).subscribe(value => {
         this.customer = value ;
-      }, error => {
-        console.log(error);
-        this.messageService.errorMessage(error.toString(), 'HATA');
+      }, err => {
+        this.messageService.errorMessage(JSON.stringify(err), 'Hata');
       });
     });
   }
+
+  navigateForList() {
+    this.router.navigateByUrl('/customer-list');
+  }
+
 }

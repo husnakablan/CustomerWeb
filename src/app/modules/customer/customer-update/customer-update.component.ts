@@ -25,8 +25,8 @@ export class CustomerUpdateComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.service.getCustomerById(params.id).subscribe(value => {
         this.customer = value;
-      }, error => {
-        this.messageService.errorMessage(error);
+      }, err => {
+        this.messageService.errorMessage(JSON.stringify(err), 'Hata');
       });
     });
   }
@@ -39,8 +39,8 @@ export class CustomerUpdateComponent implements OnInit {
     this.service.updateCustomer(this.customer).subscribe(() => {
       this.messageService.successMessage('Güncelleme başarılı.', 'GÜNCELLEME');
       this.router.navigateByUrl('/customer-list');
-    }, error => {
-      this.messageService.errorMessage(error);
+    }, err => {
+      this.messageService.errorMessage(JSON.stringify(err), 'Hata');
     });
   }
 

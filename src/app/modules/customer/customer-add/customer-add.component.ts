@@ -30,8 +30,8 @@ export class CustomerAddComponent implements OnInit {
     this.service.createCustomer(this.customer).subscribe(() => {
       this.messageService.successMessage('Müşteri oluşturuldu.', 'Müşteri Ekle');
       this.router.navigateByUrl('/customer-list');
-    }, error => {
-      this.messageService.errorMessage(error);
+    }, err => {
+      this.messageService.errorMessage(JSON.stringify(err), 'Hata');
     });
   }
 
