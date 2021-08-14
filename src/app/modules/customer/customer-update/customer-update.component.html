@@ -21,13 +21,10 @@
       </tr>
       <tr>
         <td align="right"><label class="required-label-asterisk"><b>Telefon Numarası:</b></label></td>
-        <td><input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required prefix="0"
-                   showMaskTyped="true"
-                   mask=" 000 000 00 00" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+        <td><input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required
                    [class.is-invalid]="validate(phoneNumber)"
                    #phoneNumber='ngModel'
-                   oninput="this.value=this.value.replace(/[^0-9]/g,'')"
-                   [(ngModel)]="customer.phoneNumber" [minLength]="10" [maxLength]="20"/>
+                   [(ngModel)]="customer.phoneNumber" [maxLength]="20"/>
           <small class="text-danger" *ngIf="validate(phoneNumber)">* Lütfen telefon numarası giriniz.</small>
         </td>
       </tr>

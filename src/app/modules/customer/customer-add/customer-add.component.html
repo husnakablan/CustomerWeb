@@ -24,7 +24,7 @@
         <td><input type="text" id="phoneNumber" name="phoneNumber" class="form-control" required
                    [class.is-invalid]="validate(phoneNumber)"
                    #phoneNumber='ngModel'
-                   [(ngModel)]="customer.phoneNumber" [minLength]="10" [maxLength]="20"/>
+                   [(ngModel)]="customer.phoneNumber" [maxLength]="20"/>
           <small class="text-danger" *ngIf="validate(phoneNumber)">* Lütfen telefon numarası giriniz.</small>
         </td>
       </tr>

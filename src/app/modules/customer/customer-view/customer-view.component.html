@@ -2,7 +2,7 @@
 <div class="col-8">
     <table class="col-12">
       <tr>
-        <td class="col-6" align="right"><label class="required-label-asterisk"><b>Adı:</b></label></td>
+        <td class="col-6" align="right"><label><b>Adı:</b></label></td>
         <td class="col-6">
           <input disabled type="text" id="name" name="name"
                  class="form-control" [(ngModel)]="customer.name"
@@ -10,13 +10,13 @@
         </td>
       </tr>
       <tr>
-        <td align="right"><label class="required-label-asterisk"><b>Soyadı:</b></label></td>
+        <td align="right"><label><b>Soyadı:</b></label></td>
         <td><input disabled type="text" id="surname" name="surname" class="form-control"
                    [(ngModel)]="customer.surname" [maxLength]="25"/>
         </td>
       </tr>
       <tr>
-        <td align="right"><label class="required-label-asterisk"><b>Telefon Numarası:</b></label></td>
+        <td align="right"><label><b>Telefon Numarası:</b></label></td>
         <td><input disabled type="text" id="phoneNumber" name="phoneNumber" class="form-control"
                    [(ngModel)]="customer.phoneNumber"/>
         </td>
